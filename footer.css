@@ -13,14 +13,20 @@ footer {
 }
 
 .keyboard-column {
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 43px;
+  height: 65px;
   background-color: #d3d6da;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .keyback img {
   width: 20px;
+}
+.wide {
+  width: 70px;
 }
