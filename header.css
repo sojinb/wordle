@@ -1,0 +1,36 @@
+header {
+  margin-top: 20px;
+  border-bottom: 1px solid #ededef;
+  padding-bottom: 10px;
+}
+
+.header-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 30px;
+}
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5%;
+  font-size: 30px;
+  font-weight: bold;
+}
+.header-icon-left,
+.header-icon-right img {
+  width: 30px;
+}
+.header-icon-left {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-icon-right {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
