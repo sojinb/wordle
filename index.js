@@ -66,6 +66,28 @@ function appStart() {
       index += 1;
     }
   };
+  const clickKeyboard = (event) => {
+    event.preventDefault();
+    const key = event.target.innerText;
+    const keyback = event.target.src;
+    const thisBlock = document.querySelector(
+      `.board-block[data-index='${attempts}${index}']`
+    );
+    const keyBlock = document.querySelector(
+      `.keyboard-column[data-key='${key}']`
+    );
+    if (keyback) handleBackspace();
+    if (key === keyBlock.innerText) {
+      if (index === 5) {
+        if (key === "Enter") handleEnterKey();
+        else return;
+      }
+      if (keyBlock.innerText !== "Enter" && !keyback) {
+        thisBlock.innerText = keyBlock.innerText;
+        index += 1;
+      }
+    }
+  };
 
   const startTimer = () => {
     const 시작_시간 = new Date();
@@ -83,6 +105,7 @@ function appStart() {
   };
   startTimer();
   window.addEventListener("keydown", handleKeydown);
+  window.addEventListener("click", clickKeyboard);
 }
 
 appStart();
