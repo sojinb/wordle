@@ -1,5 +1,3 @@
-const 정답 = "SOJIN";
-
 let index = 0;
 let attempts = 0;
 let timer;
@@ -23,8 +21,13 @@ function appStart() {
     displayGameover();
     clearInterval(timer);
   };
-  const handleEnterKey = () => {
+  const handleEnterKey = async () => {
     let 맞은_갯수 = 0;
+
+    //서버에서 받아오는 코드
+    const 응답 = await fetch("/answer");
+    const 정답 = await 응답.json();
+
     for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
         `.board-block[data-index='${attempts}${i}']`
@@ -59,7 +62,7 @@ function appStart() {
     );
     if (event.key === "Backspace") handleBackspace();
     if (index === 5) {
-      if (event.key === "Enter") handleEnterKey();
+      if (event.key === "ENTER") handleEnterKey();
       else return;
     } else if (65 <= keyCode && keyCode <= 90) {
       thisBlock.innerText = key;
@@ -79,10 +82,10 @@ function appStart() {
     if (keyback) handleBackspace();
     if (key === keyBlock.innerText) {
       if (index === 5) {
-        if (key === "Enter") handleEnterKey();
+        if (key === "ENTER") handleEnterKey();
         else return;
       }
-      if (keyBlock.innerText !== "Enter" && !keyback) {
+      if (keyBlock.innerText !== "ENTER" && !keyback) {
         thisBlock.innerText = keyBlock.innerText;
         index += 1;
       }
